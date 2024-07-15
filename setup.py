@@ -11,7 +11,7 @@ long_description = (here / "README.md").read_text(encoding="utf-8")
 setup(
 
     name="disguisedata",  # Required
-    version="1.0.0",  # Required
+    version="1.0.2",  # Required
     
     description="A tiny tool for generating synthetic data from the original one",  # Optional
     long_description=long_description,  # Optional

@@ -63,7 +63,7 @@ There are numerous tools available to generate synthetic data using various tech
 
 to install the package all what you have to do:
 ```
-pip install disguisedata
+pip install disguisedata==1.0.2
 ```
 You should then be able to use the package. It might be a good idea to confirm the installation to ensure everything is set up correctly.
 
@@ -74,7 +74,7 @@ The result then shall be as:
 
 ```
 Name: disguisedata
-Version: 1.0.0
+Version: 1.0.1
 Summary: A tiny tool for generating synthetic data from the original one
 Home-page: https://github.com/dahmansphi/disguisedata
 Author: Deniz Dahman's, Ph.D.
@@ -93,7 +93,7 @@ Author-email: dahmansphi@gmail.com
 Once your installation is complete and all conditions are met, you may want to explore the built-in functions of the `disguisedata` package to understand each one. Essentially, you can create an instance from the `disguisedata` class as follows:
 
 ```
-from disguisedata import Disguisedata
+from disguisedata.disguisedata import Disguisedata
 inst = Disguisedata()
 ```
 Now this instance offers you access to the built-in functions that you need. Here is a screenshot:
