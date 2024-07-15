@@ -63,7 +63,7 @@ There are numerous tools available to generate synthetic data using various tech
 
 to install the package all what you have to do:
 ```
-pip install disguisedata==1.0.2
+pip install disguisedata==1.0.3
 ```
 You should then be able to use the package. It might be a good idea to confirm the installation to ensure everything is set up correctly.
 
