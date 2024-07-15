@@ -81,7 +81,7 @@ Author: Deniz Dahman's, Ph.D.
 Author-email: dahmansphi@gmail.com
 ```
 > [!IMPORTANT]
-> **In some cases the `seaborn` is not installed during the setup. so make sure if it is not installed to install it manually** 
+> **Sometimes, the `seaborn` library isn't installed during setup. If that's the case, you'll need to install it manually.** 
 
 
 ## Employ the disguisedata -**Conditions**
