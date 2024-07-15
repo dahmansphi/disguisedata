@@ -80,6 +80,9 @@ Home-page: https://github.com/dahmansphi/disguisedata
 Author: Deniz Dahman's, Ph.D.
 Author-email: dahmansphi@gmail.com
 ```
+> [!IMPORTANT]
+> **In some cases the `seaborn` is not installed during the setup. so make sure if it is not installed to install it manually** 
+
 
 ## Employ the disguisedata -**Conditions**
 
