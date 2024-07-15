@@ -1,5 +1,5 @@
 
-![disguisedata_tool_logo](https://raw.githubusercontent.com/dahmansphi/attackai/main/assets/disguesdata_logo_gif.gif) 
+![disguisedata_tool_logo](https://github.com/dahmansphi/disguisedata/blob/main/assets/disguesdata_logo_gif.gif) 
 
 > [!TIP]
 > This project complements the __Differential Privacy with AI & ML__ project available in the [repository](https://github.com/dahmansphi/differential_privacy_with_ai_and_ml). To fully grasp the concept, make sure to read both documentations.
@@ -39,7 +39,7 @@ Synthetic data serves multiple purposes. It enhances AI models, safeguards sensi
 
 ## disguisedata __version__1.0
 
-![disguisedata_logo_png](https://raw.githubusercontent.com/dahmansphi/attackai/main/assets/disguesdata_logo_png.png) 
+![disguisedata_logo_png](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/disguesdata_logo_png.png) 
 
 There are numerous tools available to generate synthetic data using various techniques. This is where I introduce the __disguisedata__ tool. This tool helps to disguise data based on a mathematical foundational concept. In particular, it relies on two important indicators in the original dataset: 
 
@@ -95,7 +95,7 @@ inst = Disguisedata()
 ```
 Now this instance offers you access to the built-in functions that you need. Here is a screenshot:
 
-![Screenshot of build-in functions of the disguisedata tool.](https://raw.githubusercontent.com/dahmansphi/attackai/main/assets/screenshoot.png)
+![Screenshot of build-in functions of the disguisedata tool.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/screenshoot.png)
 
 Once you have the **disguisedata** instance, follow these steps to obtain the new disguised data:
 
@@ -107,13 +107,13 @@ The first function you want to employ is `feedDs` using `data = inst.feedDs(ds=d
 
 The function `explor_effect` allows you to explore how the disguised data differs from the original data. It is called using `inst.explor_effect(data=data, mu=0.5, div=0.9)`. This function takes **three arguments**: the first is the formatted dataset returned from the previous function, the second is the value representing the difference from the original mean, and the third is the amount of deviation. These parameters determine the result of the newly generated disguised data. For a detailed explanation of each parameter's effect and purpose, refer to the academic publication on the method. Here are some outputs from the function::
 
-![Screenshot of result1.](https://raw.githubusercontent.com/dahmansphi/attackai/main/assets/display_result1.png)
+![Screenshot of result1.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/display_result1.png)
 
-![Screenshot of result2.](https://raw.githubusercontent.com/dahmansphi/attackai/main/assets/report1.png)
+![Screenshot of result2.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/report1.png)
 
-![Screenshot of result3.](https://raw.githubusercontent.com/dahmansphi/attackai/main/assets/report2.png)
+![Screenshot of result3.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/report2.png)
 
-![Screenshot of result4.](https://raw.githubusercontent.com/dahmansphi/attackai/main/assets/display_result2.png)
+![Screenshot of result4.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/display_result2.png)
 
 It's important to observe how the screenshot shows the location of the disguised data from the original dataset. The report then illustrates how the values are altered according to the parameter adjustments. Additionally, it presents the differences in the mean and standard deviation between the original and disguised data.
 
@@ -122,12 +122,12 @@ Once the tuning of the parameters and the disguised data are acceptable, it is t
 ## Generating the Disguised data 
 the `disguise_data` function basically generate the disguised data, it is implemented as `Xnp = inst.disguise_data(data=data, mu=0.5, div=0.9)`,  **three arguments**: the first is the formatted dataset returned from [section](#control-and-get-the-data-format), the second is the value representing the difference from the original mean, and the third is the amount of deviation. the result from that is as shown here:
 
-![Screenshot of result5.](https://raw.githubusercontent.com/dahmansphi/attackai/main/assets/report3.png)
+![Screenshot of result5.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/report3.png)
 
 ## Conclusion on installation and employment of the method 
 It is possible to test the results returned based on the proposed method. I used two predictive methods on the original and the disguised dataset to observe the effect on accuracy. The conclusion is that there are almost identical results between both predictions, which implies that the proposed method is effective in generating realistic disguised data that maintains privacy.
 
-![Screenshot of result6.](https://raw.githubusercontent.com/dahmansphi/attackai/main/assets/report4.png)
+![Screenshot of result6.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/report4.png)
 
 
 # Reference
