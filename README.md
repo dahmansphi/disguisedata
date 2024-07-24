@@ -119,7 +119,7 @@ The function `discover_effect` allows you to explore how the disguised data diff
 setData = inst.discover_effect(data=data, effect=effect)
 ``` 
 
-This function takes **three arguments**: the first is the formatted dataset returned from the previous function, the second is the value representing the difference from the original mean, and the third is the amount of deviation. These parameters determine the result of the newly generated disguised data. For a detailed explanation of each parameter's effect and purpose, refer to the academic publication on the method. Here are some outputs from the function::
+This function takes **two arguments**: the first is the formatted dataset returned from the previous function, The second parameter is the effect value, denoted as \(\rho\); this value should range from 0 to 0.9. For a detailed understanding of its function, one may consult the relevant academic paper. Here are some outputs from the function using three different values of \(\rho\) (0.2; 0.5; and 0.9):
 
 ![Screenshot of result1.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/display_result1.png)
 
