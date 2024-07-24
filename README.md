@@ -45,7 +45,10 @@ There are numerous tools available to generate synthetic data using various tech
 
 1. __The norm__: Initially, it captures the general norm of the dataset, involving every entry in the set. This norm is then used to scale the dataset to a range of values. It is considered the **secret key** used later to convert the synthetic data into the same scale as the original.
 
-2. __The Stat__: The second important indicator for the **disguisedata** method is the statistical distribution of the original dataset, particularly the correlation and independence across all features. These values help to adjust the tweak and level of disguise of the data. Two crucial values are the mean and variance, which indicate the level of disguise.
+2. __The Geometrical Shape of a Data Point__: The second crucial indicator for the **disguisedata** method is the geometric shape of a data point in the original dataset. Each point can be represented as a right-angled triangle, which can be scaled up or down. Every point along the hypotenuse line of the triangle represents a potential replica of the original point. The accompanying figure demonstrates this concept.
+
+![triangle_png](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/fig4.png) 
+
 
 > [!IMPORTANT]
 > **This tool demonstrates the proposed method solely for educational purposes. The author provides no warranty of any kind, including the warranty of design, merchantability, and fitness for a particular purpose**. 
@@ -57,13 +60,12 @@ There are numerous tools available to generate synthetic data using various tech
 ## Data Availability
 1. Breast Cancer Wisconsin (Diagnostic) Dataset available in [UCI Machine Learning Repository] at https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic , reference (Street 1993)
 2. The Dry Bean Dataset available in [UCI Machine Learning Repository] at https://doi.org/10.24432/C50S4B , reference (Koklu 2020) 
-3. TeleCommunications Dataset available in [UCI Machine Learning Repository] at https://www.kaggle.com/datasets/navins7/telecommunications 
 
 ## Install disguisedata
 
 to install the package all what you have to do:
 ```
-pip install disguisedata==1.0.3
+pip install disguisedata==1.0.4
 ```
 You should then be able to use the package. It might be a good idea to confirm the installation to ensure everything is set up correctly.
 
@@ -74,7 +76,7 @@ The result then shall be as:
 
 ```
 Name: disguisedata
-Version: 1.0.1
+Version: 1.0.4
 Summary: A tiny tool for generating synthetic data from the original one
 Home-page: https://github.com/dahmansphi/disguisedata
 Author: Deniz Dahman's, Ph.D.
@@ -104,11 +106,13 @@ Once you have the **disguisedata** instance, follow these steps to obtain the ne
 
 ### Control and Get the data format:
 
-The first function you want to employ is `feedDs` using `data = inst.feedDs(ds=ds)`. This function takes one argument, which is the NumPy dataset, and it controls the conditions and returns a formatted, scaled dataset that is ready for the action of disguise.
+The first function you want to employ is `feedDs` using: 
+```data = inst.feedDs(ds=ds)```
+This function takes one argument, which is the NumPy dataset, and it controls the conditions and returns a formatted, scaled dataset that is ready for the action of disguise.
 
-### Explore different types of Disguise:
+### Acquire two distinct variants of disguised synthetic data.:
 
-The function `explor_effect` allows you to explore how the disguised data differs from the original data. It is called using `inst.explor_effect(data=data, mu=0.5, div=0.9)`. This function takes **three arguments**: the first is the formatted dataset returned from the previous function, the second is the value representing the difference from the original mean, and the third is the amount of deviation. These parameters determine the result of the newly generated disguised data. For a detailed explanation of each parameter's effect and purpose, refer to the academic publication on the method. Here are some outputs from the function::
+The function `discover_effect` allows you to explore how the disguised data differs from the original data. It is called using `setData = inst.discover_effect(data=data, effect=effect)`. This function takes **three arguments**: the first is the formatted dataset returned from the previous function, the second is the value representing the difference from the original mean, and the third is the amount of deviation. These parameters determine the result of the newly generated disguised data. For a detailed explanation of each parameter's effect and purpose, refer to the academic publication on the method. Here are some outputs from the function::
 
 ![Screenshot of result1.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/display_result1.png)
 

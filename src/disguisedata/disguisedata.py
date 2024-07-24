@@ -53,7 +53,126 @@ class Disguisedata:
     else:
       print("Dataset Must be of Numpy Type input")
 
-  def explor_effect(self, data, mu, div):
+  def discover_effect(self, data, effect):
+    '''This function explore the possible disguise based on the effect provided'''
+    norm = data[0]
+    Xcomplete = data[1]
+    X = Xcomplete
+
+    arrLeft = []
+    arrRight = []
+
+    for inx in range((X.shape[1])):
+      inx += 1
+      start = inx-1
+      end = inx
+      featurerX = X[:,start:inx]
+
+      meanFeature = np.mean(featurerX)
+      leftSide_mean = meanFeature - (meanFeature * effect)
+      rightSide_mean = meanFeature + (meanFeature * effect)
+
+      coeffList = featurerX/meanFeature
+
+      leftSide_Disguise = coeffList * leftSide_mean
+      rightSide_Disguise = coeffList * rightSide_mean
+
+      arrLeft.append(leftSide_Disguise)
+      arrRight.append(rightSide_Disguise)
+
+    arrLeft = np.array(arrLeft)
+    arrLeft = arrLeft.T
+    arrLeft = arrLeft[0]
+    leftDataset = arrLeft
+
+    arrRight = np.array(arrRight)
+    arrRight = arrRight.T
+    arrRight = arrRight[0]
+    rightDataset = arrRight
+
+    # dealing with samples of the first 6 columns
+    # Graph Axis display
+    XsixFeature = Xcomplete[:,:6]
+    arrLeftSixFeature = arrLeft[:,:6]
+    arrRightSixFeature = arrRight[:,:6]
+
+    groupGraph = [[(0,1), (2,3), (4,5)], [(1,2), (3,4), (0,5)]]
+    fig, axs = plt.subplots(nrows=2, ncols=3, figsize=(8, 8), tight_layout=True)
+
+    for i in range(2):
+      G = groupGraph[i]
+      for j in range(3):
+        axs[i, j].scatter(XsixFeature[:,G[j][0]], XsixFeature[:,G[j][1]], label="original")
+        axs[i, j].scatter(arrLeftSixFeature[:,G[j][0]], arrLeftSixFeature[:,G[j][1]], label="disguised")
+        axs[i, j].set_title(f"Axis: ({G[j][0]}) and ({G[j][1]})")
+        axs[i, j].axis("off")
+
+    fig.suptitle("Display of Axis distances- Left from Mean")
+    plt.legend()
+    plt.show()
+
+    fig, axs = plt.subplots(nrows=2, ncols=3, figsize=(8, 8), tight_layout=True)
+    for i in range(2):
+      G = groupGraph[i]
+      for j in range(3):
+        axs[i, j].scatter(XsixFeature[:,G[j][0]], XsixFeature[:,G[j][1]], label="original")
+        axs[i, j].scatter(arrRightSixFeature[:,G[j][0]], arrRightSixFeature[:,G[j][1]], label="disguised")
+        axs[i, j].set_title(f"Axis: ({G[j][0]}) and ({G[j][1]})")
+        axs[i, j].axis("off")
+
+    fig.suptitle("Display of Axis distances- Right from Mean")
+    plt.legend()
+    plt.show()
+
+    # Display Mat figure
+    YLeftSide = arrLeftSixFeature * norm
+    YRightSide = arrRightSixFeature * norm
+    Xorg = XsixFeature * norm
+
+    lin_dash = "_" * 35
+    bar_dash = "|"
+
+    covOriginal = np.cov(X)
+    corrOriginal = np.corrcoef(X)
+    covarrLeft = np.cov(arrLeft)
+    corrLeft = np.corrcoef(arrLeft)
+    covarrRight = np.cov(arrRight)
+    corrRight = np.corrcoef(arrRight)
+
+    original_lef_cov_diff = np.sum((covOriginal - covarrLeft)**2)
+    original_right_cov_diff = np.sum((covOriginal - covarrRight)**2)
+
+    original_lef_corr_diff = np.sum((corrOriginal - corrLeft)**2)
+    original_right_corr_diff = np.sum((corrOriginal - corrRight)**2)
+
+    print(lin_dash)
+    print("The covariance and correlation Difference of the original set and Left set")
+    print(f"Covariance diff {original_lef_cov_diff}, correlation diff {original_lef_corr_diff}")
+    print(lin_dash)
+    print("The covariance and correlation Difference of the original set and Right set")
+    print(f"Covariance diff {original_right_cov_diff}, correlation diff {original_right_corr_diff}")
+    print(lin_dash)
+
+    for inx in range((Xorg.shape[1])):
+      ysyntheticLeft = YLeftSide[:,inx]
+      ysyntheticRight = YRightSide[:,inx]
+      xorginal = Xorg[:,inx]
+      meanCurrentFeature = (np.mean(X[:,inx])) * norm
+      meanCurrentFeatureLeft = (np.mean(arrLeft[:,inx])) * norm
+      meanCurrentFeatureRight = (np.mean(arrRight[:,inx])) * norm
+
+      print(f"First three cases from Column {inx+1}")
+      print(f"Original mean of this feature {meanCurrentFeature} {bar_dash} Left mean disguised is {meanCurrentFeatureLeft} {bar_dash} Right mean disguised is {meanCurrentFeatureRight}")
+      print(lin_dash)
+      for jinx in range(3):
+        print(f"Original Entry {xorginal[jinx]} {bar_dash} Disguised Entry- Left {ysyntheticLeft[jinx]} {bar_dash} Disguised Entry- Right {ysyntheticRight[jinx]}")
+      print(lin_dash)
+
+    leftDataset = leftDataset * norm
+    rightDataset = rightDataset * norm
+    return [leftDataset, rightDataset]
+
+  def _explor_effect(self, data, mu, div):
     '''This function offer a view on the divation effect provided as argument'''
     norm = data[0]
     Xcomplete = data[1]
@@ -186,7 +305,7 @@ class Disguisedata:
 
 
 
-  def disguise_data(self, data, mu, div):
+  def _disguise_data(self, data, mu, div):
     '''This function carrys on the generation process based on DisguiseData Method'''
     norm = data[0]
     X = data[1]
