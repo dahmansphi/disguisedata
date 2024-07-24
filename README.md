@@ -119,29 +119,50 @@ The function `discover_effect` allows you to explore how the disguised data diff
 setData = inst.discover_effect(data=data, effect=effect)
 ``` 
 
-This function takes **two arguments**: the first is the formatted dataset returned from the previous function, The second parameter is the effect value, denoted as \(\rho\); this value should range from 0 to 0.9. For a detailed understanding of its function, one may consult the relevant academic paper. Here are some outputs from the function using three different values of \(\rho\) (0.2; 0.5; and 0.9):
+This function takes **two arguments**: the first is the formatted dataset returned from the previous function, The second parameter is the effect value, denoted as ρ; this value should range from 0 to 0.9. For a detailed understanding of its function, one may consult the relevant academic paper. 
 
-![Screenshot of result1.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/display_result1.png)
+> [!IMPORTANT]
+> The function should return two disguised synthetic datasets; one contains values that are to the left of the original, and the other contains values to the right. You can use the `setData[0]` or `setData[1]` variable to examine each one.
 
-![Screenshot of result2.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/report1.png)
+> [!TIP]
+> It's important to observe how the screenshot shows the location of the disguised data from the original dataset. The report then illustrates how the values are altered according to the parameter adjustments. Additionally, it presents the differences in the mean and correlation between the original and disguised data.
 
-![Screenshot of result3.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/report2.png)
+Here are some outputs from the function using three different values of ρ (0.2; 0.5; and 0.9):
 
-![Screenshot of result4.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/display_result2.png)
 
-It's important to observe how the screenshot shows the location of the disguised data from the original dataset. The report then illustrates how the values are altered according to the parameter adjustments. Additionally, it presents the differences in the mean and standard deviation between the original and disguised data.
+### at ρ = 0.2
+![Screenshot of result1.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/02fig1.png)
 
-Once the tuning of the parameters and the disguised data are acceptable, it is time to execute the `disguise_data` function.
+![Screenshot of result2.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/02fig2.png)
 
-## Generating the Disguised data 
-the `disguise_data` function basically generate the disguised data, it is implemented as `Xnp = inst.disguise_data(data=data, mu=0.5, div=0.9)`,  **three arguments**: the first is the formatted dataset returned from [section](#control-and-get-the-data-format), the second is the value representing the difference from the original mean, and the third is the amount of deviation. the result from that is as shown here:
+![Screenshot of result3.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/02r1.png)
 
-![Screenshot of result5.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/report3.png)
+
+### at ρ = 0.5
+![Screenshot of result1.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/05fig1.png)
+
+![Screenshot of result2.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/05fig2.png)
+
+![Screenshot of result3.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/05r1.png)
+
+### at ρ = 0.9
+![Screenshot of result1.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/08fig1.png)
+
+![Screenshot of result2.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/08fig2.png)
+
+![Screenshot of result3.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/08r1.png)
 
 ## Conclusion on installation and employment of the method 
 It is possible to test the results returned based on the proposed method. I used two predictive methods on the original and the disguised dataset to observe the effect on accuracy. The conclusion is that there are almost identical results between both predictions, which implies that the proposed method is effective in generating realistic disguised data that maintains privacy.
 
-![Screenshot of result6.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/report4.png)
+__at ρ = 0.2__
+![Screenshot of result6.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/02r2.png)
+
+__at ρ = 0.5__
+![Screenshot of result6.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/05r2.png)
+
+__at ρ = 0.8__
+![Screenshot of result6.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/08r2.png)
 
 
 # Reference
