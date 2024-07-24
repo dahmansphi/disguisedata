@@ -107,12 +107,19 @@ Once you have the **disguisedata** instance, follow these steps to obtain the ne
 ### Control and Get the data format:
 
 The first function you want to employ is `feedDs` using: 
-```data = inst.feedDs(ds=ds)```
+```
+data = inst.feedDs(ds=ds)
+```
 This function takes one argument, which is the NumPy dataset, and it controls the conditions and returns a formatted, scaled dataset that is ready for the action of disguise.
 
 ### Acquire two distinct variants of disguised synthetic data.:
 
-The function `discover_effect` allows you to explore how the disguised data differs from the original data. It is called using `setData = inst.discover_effect(data=data, effect=effect)`. This function takes **three arguments**: the first is the formatted dataset returned from the previous function, the second is the value representing the difference from the original mean, and the third is the amount of deviation. These parameters determine the result of the newly generated disguised data. For a detailed explanation of each parameter's effect and purpose, refer to the academic publication on the method. Here are some outputs from the function::
+The function `discover_effect` allows you to explore how the disguised data differs from the original data. It is called using: 
+```
+setData = inst.discover_effect(data=data, effect=effect)
+``` 
+
+This function takes **three arguments**: the first is the formatted dataset returned from the previous function, the second is the value representing the difference from the original mean, and the third is the amount of deviation. These parameters determine the result of the newly generated disguised data. For a detailed explanation of each parameter's effect and purpose, refer to the academic publication on the method. Here are some outputs from the function::
 
 ![Screenshot of result1.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/display_result1.png)
 
