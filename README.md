@@ -156,12 +156,15 @@ Here are some outputs from the function using three different values of ρ (0.2;
 It is possible to test the results returned based on the proposed method. I used two predictive methods on the original and the disguised dataset to observe the effect on accuracy. The conclusion is that there are almost identical results between both predictions, which implies that the proposed method is effective in generating realistic disguised data that maintains privacy.
 
 __at ρ = 0.2__
+
 ![Screenshot of result6.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/02r2.png)
 
 __at ρ = 0.5__
+
 ![Screenshot of result6.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/05r2.png)
 
 __at ρ = 0.8__
+
 ![Screenshot of result6.](https://raw.githubusercontent.com/dahmansphi/disguisedata/main/assets/08r2.png)
 
 
